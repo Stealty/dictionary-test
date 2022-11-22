@@ -9,7 +9,7 @@ export default function Meanings({ data }: any) {
       >
         {data?.partOfSpeech}
       </Text>
-      <OrderedList pl="15px">
+      <OrderedList pl="33px">
         {data?.definitions.map((data: any, index: any) => {
           return (
             <ListItem key={index} fontSize={{ sm: '2.3rem', lg: '2rem' }}>
