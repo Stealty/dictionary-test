@@ -7,7 +7,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <head></head>
+      <head>
+        <title>V_Dictionary</title>
+        <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+      </head>
       <body>{children}</body>
     </html>
   );
