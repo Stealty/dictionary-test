@@ -12,7 +12,11 @@ export default function WordInfo({ data }: any) {
         padding="15px 30px"
         borderRadius={20}
       >
-        <Heading as="h3" size="2xl" textTransform="capitalize">
+        <Heading
+          as="h3"
+          fontSize={{ base: '2rem', md: '3.5rem', lg: '4rem' }}
+          textTransform="capitalize"
+        >
           {data[0]?.word}
         </Heading>
         <Phonetics data={data} />

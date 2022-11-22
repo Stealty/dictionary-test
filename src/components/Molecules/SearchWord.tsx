@@ -16,6 +16,7 @@ export default function SearchWord({ search }: any) {
     <Flex margin="10px 10%">
       <FormControl
         as="form"
+        label="search"
         onSubmit={(event) => search(event, value.trim().toLowerCase())}
       >
         <InputGroup>
