@@ -12,7 +12,7 @@ export default function Meanings({ data }: any) {
       <OrderedList pl="15px">
         {data?.definitions.map((data: any, index: any) => {
           return (
-            <ListItem key={index}>
+            <ListItem key={index} fontSize={{ sm: '2.3rem', lg: '2rem' }}>
               <Text fontSize={{ sm: '2.3rem', lg: '2rem' }}>
                 {data.definition}
               </Text>
