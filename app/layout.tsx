@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-head-element */
+import Navigation from 'src/components/Molecules/Navigation';
 
 export default function RootLayout({
   children,

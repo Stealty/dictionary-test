@@ -1,6 +1,5 @@
 'use client';
-
-import '../src/styles/global.css';
+import '../../src/styles/global.css';
 import { ChakraProvider, extendTheme, Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 import WordInfo from 'src/components/Organisms/WordInfo';

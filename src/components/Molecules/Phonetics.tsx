@@ -3,10 +3,10 @@ import removeBar from 'src/utils/removeBar';
 import Pronunciation from './Pronunciation';
 
 export default function Phonetics({ data }: any) {
-  console.log(data);
   return data[0] ? (
     <HStack spacing="30px" h="40px">
       <Text fontSize="x-large">
+        Pronunciation:{' '}
         {data[0].phonetic
           ? removeBar(data[0].phonetic)
           : data[0].phonetics[0].text
