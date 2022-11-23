@@ -2,15 +2,7 @@
 
 import '../../src/styles/global.css';
 
-import {
-  extendTheme,
-  ChakraProvider,
-  Flex,
-  Text,
-  Button,
-  VStack,
-  HStack,
-} from '@chakra-ui/react';
+import { extendTheme, ChakraProvider, Flex } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import Navigation from 'src/components/Molecules/Navigation';
 import Quiz from 'src/components/Organisms/Quiz';
