@@ -9,7 +9,11 @@ import {
 import { BiSearchAlt } from 'react-icons/bi';
 import { useState } from 'react';
 
-export default function SearchWord({ search }: any) {
+type SearchWordType = {
+  search: Function;
+};
+
+export default function SearchWord({ search }: SearchWordType) {
   const [value, setValue] = useState('');
 
   return (

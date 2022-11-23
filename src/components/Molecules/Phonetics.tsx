@@ -2,7 +2,19 @@ import { Text, HStack } from '@chakra-ui/react';
 import removeBar from 'src/utils/removeBar';
 import Pronunciation from './Pronunciation';
 
-export default function Phonetics({ data }: any) {
+interface PhoneticsProps {
+  phonetic: string;
+  phonetics: {
+    text: string;
+    audio: string;
+  }[];
+}
+
+type PhoneticsType = {
+  data: PhoneticsProps[];
+};
+
+export default function Phonetics({ data }: PhoneticsType) {
   return data[0] ? (
     <HStack spacing="30px" h="40px">
       <Text fontSize="x-large">

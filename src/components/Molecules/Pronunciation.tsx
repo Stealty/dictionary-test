@@ -2,7 +2,11 @@ import { Button } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { AiOutlineSound } from 'react-icons/ai';
 
-export default function Pronunciation({ data }: any) {
+type PronunciationType = {
+  data: string;
+};
+
+export default function Pronunciation({ data }: PronunciationType) {
   const [pronunciation, setPronunciation] = useState(() => new Audio(data));
 
   useEffect(() => {

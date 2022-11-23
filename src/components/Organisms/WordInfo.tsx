@@ -1,10 +1,33 @@
-import { Flex, Heading, ScaleFade, VStack } from '@chakra-ui/react';
+import { Heading, ScaleFade, VStack } from '@chakra-ui/react';
 import Definitions from '../Molecules/Definitions';
 import Phonetics from '../Molecules/Phonetics';
 
-export default function WordInfo({ data }: any) {
+interface WordInfoProps {
+  word: string;
+  phonetic: string;
+  phonetics: {
+    text: string;
+    audio: string;
+  }[];
+  license: {
+    name: string;
+    url: string;
+  };
+  meanings: {
+    [x: string]: any;
+    partOfSpeech: string;
+    definitions: [];
+    synonyms: string[];
+  };
+}
+
+type WordInfoType = {
+  data: WordInfoProps[];
+};
+
+export default function WordInfo({ data }: WordInfoType) {
   return (
-    <ScaleFade initialScale={0.5} in={data}>
+    <ScaleFade initialScale={0.5} in={data && true}>
       <VStack
         bgColor="white"
         direction="column"

@@ -1,6 +1,15 @@
 import { Text, VStack, ListItem, OrderedList } from '@chakra-ui/react';
 
-export default function Meanings({ data }: any) {
+interface MeaningsProps {
+  partOfSpeech: string;
+  definitions: string[];
+}
+
+type MeaningsType = {
+  data: MeaningsProps;
+};
+
+export default function Meanings({ data }: MeaningsType) {
   return (
     <VStack align="start" spacing="0.5">
       <Text

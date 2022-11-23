@@ -20,7 +20,6 @@ export default function Navigation() {
   return (
     <nav style={{ width: '100%' }}>
       <OrderedList
-        w="100%"
         justifyContent="space-around"
         display="flex"
         flexDirection="row"
