@@ -1,4 +1,4 @@
-import { Button, Text, VStack } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 type CorrectionType = {
   correct: boolean;
