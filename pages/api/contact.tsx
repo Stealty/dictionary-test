@@ -36,7 +36,7 @@ export default async (req: any, res: any) => {
         html: `
         <td class="esd-stripe" align="center">
     <table class="es-content-body" style="background-color: #ffffff; background-image: url(https://www.valtech.com/4ad61f/contentassets/9a7226cac74e40e0a953787e63af760a/marketing-science-analyst.png); background-repeat: no-repeat; background-position: center top;" width="560" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" background="https://www.valtech.com/4ad61f/contentassets/9a7226cac74e40e0a953787e63af760a/marketing-science-analyst.png">
-        <tbody color="white">
+        <tbody>
             <tr>
                 <td class="esd-structure es-p40t es-p40b es-p20r es-p20l es-m-p20t es-m-p20b" align="left">
                     <table width="100%" cellspacing="0" cellpadding="0">
@@ -47,16 +47,16 @@ export default async (req: any, res: any) => {
                                         <tbody>
                                             <tr>
                                                 <td align="center" class="esd-block-text es-p40r es-p40l es-m-p0r es-m-p0l">
-                                                    <h1><strong>Email: </strong>${validEmail}</h1>
-                                                    <h2><strong>Name: </strong>${validName}</h2>
+                                                    <h1 color="white"><strong color="white">Email: </strong>${validEmail}</h1>
+                                                    <h2 color="white"><strong color="white">Name: </strong>${validName}</h2>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td align="center" class="esd-block-image es-p20t es-p20r es-m-p0r" style="font-size: 0px;"><a target="_blank" href="https://viewstripo.email"><img src="https://tlr.stripocdn.email/content/guids/CABINET_3c44d21222e005d5e11c4c6e5d385fdf/images/_x37__MML.png" alt="Cat" style="display: block;" title="Cat" width="132"></a></td>
+                                                <td align="center" class="esd-block-image es-p20t es-p20r es-m-p0r" style="font-size: 0px;"><img src="https://tlr.stripocdn.email/content/guids/CABINET_3c44d21222e005d5e11c4c6e5d385fdf/images/_x37__MML.png" alt="Cat" style="display: block;" title="Cat" width="132"></td>
                                             </tr>
                                             <tr>
                                                 <td align="center" class="esd-block-text es-p40r es-p40l es-m-p0r es-m-p0l">
-                                                    <p><strong>Message: </strong>${validMessage}</p>
+                                                    <p color="white"><strong color="white">Message: </strong>${validMessage}</p>
                                                 </td>
                                             </tr>
                                             <tr>
