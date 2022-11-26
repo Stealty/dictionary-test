@@ -47,8 +47,8 @@ export default async (req: any, res: any) => {
                                         <tbody>
                                             <tr>
                                                 <td align="center" class="esd-block-text es-p40r es-p40l es-m-p0r es-m-p0l">
-                                                    <h1 color="white"><strong color="white">Email: </strong>${validEmail}</h1>
-                                                    <h2 color="white"><strong color="white">Name: </strong>${validName}</h2>
+                                                    <h1 style="color:white"><strong style="color:white">Email: </strong>${validEmail}</h1>
+                                                    <h2 style="color:white"><strong style="color:white">Name: </strong>${validName}</h2>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -56,7 +56,7 @@ export default async (req: any, res: any) => {
                                             </tr>
                                             <tr>
                                                 <td align="center" class="esd-block-text es-p40r es-p40l es-m-p0r es-m-p0l">
-                                                    <p color="white"><strong color="white">Message: </strong>${validMessage}</p>
+                                                    <p style="color:white"><strong style="color:white">Message: </strong>${validMessage}</p>
                                                 </td>
                                             </tr>
                                             <tr>
