@@ -18,7 +18,7 @@ export default function Contact() {
     let config = {
       method: 'post',
       body: JSON.stringify(values),
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+      url: '/api/contact',
       headers: {
         'Content-Type': 'application/json',
       },
