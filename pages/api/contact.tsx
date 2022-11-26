@@ -31,7 +31,8 @@ export default async (req: any, res: any) => {
     } else {
       const emailResponse = await transporter.sendMail({
         from: validEmail,
-        to: 'gabriel.ribeiro@valtech.com',
+        sender: validEmail,
+        to: 'biellbigama@gmail.com',
         subject: `Contact form submission from ${validEmail}`,
         html: `
         <td class="esd-stripe" align="center">
