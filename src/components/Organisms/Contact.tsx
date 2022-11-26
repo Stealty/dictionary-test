@@ -22,7 +22,7 @@ export default function Contact() {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: values.trim(),
+      data: values,
     };
     try {
       const response = await fetch(config.url, config);

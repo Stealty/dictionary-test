@@ -2,6 +2,10 @@ import nodemailer from 'nodemailer';
 export default async (req: any, res: any) => {
   const { name, email, message } = req.body;
 
+  const validName = name.trim();
+  const validEmail = email.trim();
+  const validMessage = message.trim();
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -13,25 +17,25 @@ export default async (req: any, res: any) => {
   });
 
   try {
-    if (!email) {
+    if (!email || !validEmail) {
       res.status(400).send('Please enter a valid email');
       console.log('Please enter a valid email');
     }
-    if (!message) {
+    if (!message || !validMessage) {
       res.status(400).send('Please enter a message');
       console.log('Please enter a message');
     }
-    if (!name) {
+    if (!name || !validName) {
       res.status(400).send('Please enter a name');
       console.log('Please enter a name');
     } else {
       const emailResponse = await transporter.sendMail({
         from: email,
         to: 'biellbigama@gmail.com',
-        subject: `Contact form submission from ${name}`,
+        subject: `Contact form submission from ${validEmail}`,
         html: `<p>You have a new contact form submission</p><br>
-      <p><strong>Name: </strong> ${name} </p><br>
-      <p><strong>Message: </strong> ${message} </p><br>
+      <p><strong>Name: </strong> ${validName} </p><br>
+      <p><strong>Message: </strong> ${validMessage} </p><br>
       `,
       });
 
