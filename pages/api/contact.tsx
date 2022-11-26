@@ -35,8 +35,8 @@ export default async (req: any, res: any) => {
         subject: `Contact form submission from ${validEmail}`,
         html: `
         <td class="esd-stripe" align="center">
-    <table class="es-content-body" style="background-color: #ffffff; background-image: url(https://tlr.stripocdn.email/content/guids/CABINET_3c44d21222e005d5e11c4c6e5d385fdf/images/group_Nmh.png); background-repeat: no-repeat; background-position: center top;" width="560" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" background="https://tlr.stripocdn.email/content/guids/CABINET_3c44d21222e005d5e11c4c6e5d385fdf/images/group_Nmh.png">
-        <tbody>
+    <table class="es-content-body" style="background-color: #ffffff; background-image: url(https://www.valtech.com/4ad61f/contentassets/9a7226cac74e40e0a953787e63af760a/marketing-science-analyst.png); background-repeat: no-repeat; background-position: center top;" width="560" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" background="https://www.valtech.com/4ad61f/contentassets/9a7226cac74e40e0a953787e63af760a/marketing-science-analyst.png">
+        <tbody color="white">
             <tr>
                 <td class="esd-structure es-p40t es-p40b es-p20r es-p20l es-m-p20t es-m-p20b" align="left">
                     <table width="100%" cellspacing="0" cellpadding="0">
