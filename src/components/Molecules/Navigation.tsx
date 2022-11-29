@@ -18,14 +18,24 @@ export default function Navigation() {
   }
 
   return (
-    <nav style={{ width: '100%' }}>
+    <nav>
       <OrderedList
-        justifyContent="space-around"
-        display="flex"
-        flexDirection="row"
+        display="grid"
+        gridTemplateColumns="1fr 1fr 1fr"
+        alignItems="center"
+        justifyItems="center"
         listStyleType="none"
+        bgColor={'gray.300'}
+        margin="0"
+        h="50px"
       >
-        <ListItem>
+        <ListItem
+          w="100%"
+          h="100%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Link href="/">
             <Text color={selectedRoute(route, '/', 'orange')}>Home</Text>
           </Link>
