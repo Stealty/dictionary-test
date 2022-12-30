@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import dataSlice from './dataSlice';
+import userSlice from './userSlice';
 
 const store = configureStore({
   reducer: {
-    credentials: dataSlice.reducer,
+    credentials: userSlice.reducer,
   },
 });
 

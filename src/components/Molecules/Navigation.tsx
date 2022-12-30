@@ -25,7 +25,7 @@ export default function Navigation() {
         alignItems="center"
         justifyItems="center"
         listStyleType="none"
-        bgColor={'gray.300'}
+        bgColor="var(--chakra-colors-gray-800);"
         margin="0"
         h="50px"
       >

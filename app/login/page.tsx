@@ -1,33 +1,71 @@
 'use client';
 
 import { Button, Flex, FormControl, FormLabel, Input } from '@chakra-ui/react';
-import { FormEvent, useCallback, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { api } from 'pages/api/api';
+import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'src/hooks/useRedux';
-import store from 'src/store/modules/configureStore';
-import { dataSliceReducer } from 'src/store/modules/dataSlice';
+import { userSliceReducer } from 'src/store/modules/userSlice';
+import { setCookie, parseCookies } from 'nookies';
 import '../../src/styles/global.css';
 
 export default function Page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
-  const selector = useAppSelector(dataSliceReducer);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const { 'dictionary.token': token } = parseCookies();
+
+    if (token) {
+      api.get('/me').then((response) => {
+        const { email, permissions, roles } = response.data;
+
+        setUser({ email, permissions, roles });
+      });
+    }
+    // if (selector.payload.credentials.isAuthenticated) router.push('/');
+  }, []);
 
   const handleSubmit = useCallback(
-    (event: FormEvent) => {
+    async (event: FormEvent) => {
       event.preventDefault();
 
-      const data = {
-        email,
-        password,
-      };
+      try {
+        const response = await api.post('sessions', {
+          email,
+          password,
+        });
 
-      dispatch(dataSliceReducer(data));
+        const { permissions, roles, token, refreshToken } = response.data;
 
-      console.log(data);
+        setUser({
+          email,
+          permissions,
+          roles,
+        });
+
+        console.log(response.data);
+
+        dispatch(userSliceReducer({ email, permissions, roles }));
+
+        setCookie(undefined, 'dictionary.token', token, {
+          maxAge: 60 * 60 * 24 * 30, // 30 days
+          path: '/',
+        });
+        setCookie(undefined, 'dictionary.refreshToken', refreshToken, {
+          maxAge: 60 * 60 * 24 * 30, // 30 days
+          path: '/',
+        });
+
+        // router.push('/');
+      } catch (err) {
+        console.error(err);
+        setUser('');
+      }
     },
-    [email, password],
+    [email],
   );
 
   return (
@@ -38,7 +76,7 @@ export default function Page() {
       minH="100vh"
       p="2.5rem"
     >
-      <FormControl onSubmit={handleSubmit}>
+      <FormControl onSubmit={handleSubmit} color="black">
         <FormLabel htmlFor="emailInput">Email Address</FormLabel>
         <Input
           id="emailInput"
@@ -59,9 +97,6 @@ export default function Page() {
         />
         <Button type="submit" onClick={handleSubmit}>
           Login
-        </Button>
-        <Button type="submit" onClick={() => console.log(selector)}>
-          Get data
         </Button>
       </FormControl>
     </Flex>

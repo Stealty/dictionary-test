@@ -29,7 +29,7 @@ export default function WordInfo({ data }: WordInfoType) {
   return (
     <ScaleFade initialScale={0.5} in={data && true}>
       <VStack
-        bgColor="white"
+        bgColor="var(--chakra-colors-gray-800);"
         direction="column"
         margin="0 10%"
         padding="15px 30px"
