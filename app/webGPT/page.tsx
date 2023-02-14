@@ -1,6 +1,4 @@
 'use client';
-
-import React from 'react';
 import Webcam from '../../src/components/Molecules/Webcam';
 import Sidebar from 'src/components/Molecules/Sidebar';
 
