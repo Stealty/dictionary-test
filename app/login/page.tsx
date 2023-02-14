@@ -8,12 +8,14 @@ import { useAppDispatch, useAppSelector } from 'src/hooks/useRedux';
 import { userSliceReducer } from 'src/store/modules/userSlice';
 import { setCookie, parseCookies } from 'nookies';
 import '../../src/styles/global.css';
+import store from 'src/store/modules/configureStore';
+import router from 'next/router';
 
 export default function Page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
-  const [user, setUser] = useState({});
+  const selector = useAppSelector((store) => store.credentials);
 
   useEffect(() => {
     const { 'dictionary.token': token } = parseCookies();
@@ -22,10 +24,19 @@ export default function Page() {
       api.get('/me').then((response) => {
         const { email, permissions, roles } = response.data;
 
-        setUser({ email, permissions, roles });
+        dispatch(
+          userSliceReducer({
+            isAuthenticated: true,
+            email,
+            permissions,
+            roles,
+          }),
+        );
+        console.log(response.data);
       });
     }
-    // if (selector.payload.credentials.isAuthenticated) router.push('/');
+    console.log(selector);
+    if (selector.isAuthenticated) router.push('/');
   }, []);
 
   const handleSubmit = useCallback(
@@ -39,16 +50,16 @@ export default function Page() {
         });
 
         const { permissions, roles, token, refreshToken } = response.data;
-
-        setUser({
-          email,
-          permissions,
-          roles,
-        });
+        dispatch(
+          userSliceReducer({
+            email,
+            permissions,
+            roles,
+            isAuthenticated: true,
+          }),
+        );
 
         console.log(response.data);
-
-        dispatch(userSliceReducer({ email, permissions, roles }));
 
         setCookie(undefined, 'dictionary.token', token, {
           maxAge: 60 * 60 * 24 * 30, // 30 days
@@ -62,10 +73,14 @@ export default function Page() {
         // router.push('/');
       } catch (err) {
         console.error(err);
-        setUser('');
+        dispatch(
+          userSliceReducer({
+            isAuthenticated: false,
+          }),
+        );
       }
     },
-    [email],
+    [email, password],
   );
 
   return (
