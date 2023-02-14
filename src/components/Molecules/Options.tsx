@@ -8,7 +8,7 @@ interface QuestionProps {
 type QuestionType = {
   data: QuestionProps[];
   index: number;
-  value: number;
+  value?: any;
   setValue: any;
   correction: Function;
   getAnswer: Function;
