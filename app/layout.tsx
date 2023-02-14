@@ -1,9 +1,11 @@
 'use client';
 
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { Provider } from 'react-redux';
+import store from 'src/store/modules/configureStore';
 
 const config = {
-  useSystemColorMode: false,
+  useSystemColorMode: true,
   initialColorMode: 'dark',
 };
 
@@ -22,7 +24,9 @@ export default function RootLayout({
         <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
       </head>
       <body>
-        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        <Provider store={store}>
+          <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        </Provider>
       </body>
     </html>
   );

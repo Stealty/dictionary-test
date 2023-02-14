@@ -33,7 +33,12 @@ export default function Page() {
   return (
     <>
       <Navigation />
-      <Flex direction="column" bgColor="gray.300" h="100%" minH="100vh">
+      <Flex
+        direction="column"
+        bgColor="var(--chakra-colors-gray-700);"
+        h="100%"
+        minH="100vh"
+      >
         <SearchWord search={getData} />
         <WordInfo data={data} />
       </Flex>
